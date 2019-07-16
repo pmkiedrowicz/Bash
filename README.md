@@ -10,8 +10,9 @@ users               //users
 who                 //users with details
 w                   //more details
 cd ~username        //home directory of user
+ssmtp recipients_mail@hostname.com  //send email directly from console
 ```
-### Permisions
+### Permissions
 ```
 owner/group/other(world)
 drwxr-xr---        //0 directory
@@ -59,7 +60,7 @@ kjhl           //WSAD
 ```
 ### cat
 ```
-cat -b newFile    //read content of file with no. lines
+cat -b newFile    //read content with no. lines
 ```
 ### wc
 ```
@@ -68,6 +69,10 @@ wc newFile        //no. lines/words/bytes/fileName
 ### cp
 ```
 cp oldFile newFile     //copy file
+```
+### pr
+```
+pr option filename     //read content with formatting
 ```
 ### mv
 ```
@@ -83,7 +88,24 @@ rmdir newDirectory        //remove directory
 mkdir dirname             //create directory
 mkdir -p dir/dir/dir      //create nested directories
 ```
+### ssmtp
+```
+sudo apt-get install ssmtp
+---------------------------------
+sudo nano /etc/ssmtp/ssmtp.conf       //configure ssmtp
+root=myemailaddress@gmail.com
+mailhub=smtp.gmail.com:587
+AuthUser=mygmailusername
+AuthPass=mypassword
+UseSTARTTLS=YES
+---------------------------------
+ssmtp recipient_email@example.com     //send actual mail
+To: recipient_email@example.com
+From: myemailaddress@gmail.com
+Subject: test email
 
+hello world!
+```
 
 
 
