@@ -9,8 +9,15 @@ whoami              //current user
 users               //users
 who                 //users with details
 w                   //more details
+finger              //users
 cd ~username        //home directory of user
-ssmtp recipients_mail@hostname.com  //send email directly from console
+ps -f               //list processes with additional data
+kill -9 PID         //kill process 
+top                 //realtime processes status
+export PATH=$PATH:. //adds current location to PATH
+test -d -f file     // test if dir/file exists
+   && echo "true" || echo "false"
+echo $?             //check last command (0 = OK)
 ```
 ### Permissions
 ```
@@ -25,14 +32,14 @@ Execute            //run as program
 chown user file    //change owner of file
 chgrp group file   //change group of file
 chmod XXX          //three digits [user/group/world]
-0 ---	           //No permission
-1 --x	           //Execute permission
-2 -w-		       //Write permission
-3 -wx		       //Execute and write
-4 r--		       //Read permission
-5 r-x		       //Read and execute permission
-6 rw-		       //Read and write permission
-7 rwx		       //All permissions 	
+0 ---              //No permission
+1 --x              //Execute permission
+2 -w-              //Write permission
+3 -wx              //Execute and write
+4 r--              //Read permission
+5 r-x              //Read and execute permission
+6 rw-              //Read and write permission
+7 rwx              //All permissions 	
 ```
 ### Shutdown
 ```
@@ -57,6 +64,17 @@ vi newFile     //creates new file and go view mode
 i              //edit file
 Shift+ZZ       //save+close file
 kjhl           //WSAD
+```
+### grep
+```
+grep -v        //prints not matching pattern
+grep -n        //match + line number
+grep -c        //no. counts
+grep -i        //case insensitive
+```
+### sort
+```
+sort +4n | more   //skip sort first 4 columns, space to unveil more
 ```
 ### cat
 ```
@@ -92,14 +110,14 @@ mkdir -p dir/dir/dir      //create nested directories
 ```
 sudo apt-get install ssmtp
 ---------------------------------
-sudo nano /etc/ssmtp/ssmtp.conf       //configure ssmtp
+sudo nano /etc/ssmtp/ssmtp.conf                 //configure ssmtp
 root=myemailaddress@gmail.com
 mailhub=smtp.gmail.com:587
 AuthUser=mygmailusername
 AuthPass=mypassword
 UseSTARTTLS=YES
 ---------------------------------
-ssmtp recipient_email@example.com     //send actual mail
+ssmtp recipient_email@example.com  < mailFile   //send actual mail from mailFile
 To: recipient_email@example.com
 From: myemailaddress@gmail.com
 Subject: test email
