@@ -12,6 +12,7 @@ test -d $HOME/$dir || mkdir -m 700 $HOME/$dir
 #Search for matches files and copy them under $dir directory
 #find $HOME -path $HOME/$dir/      //search for every match under $HOME directory
 #                                  //and every subdirectory under it
+#                                  //and exclude backup directory
 #-prune                            //dont create output into subdirectories
 #-o                                //send the output to the files
 #-name "*$suffix"                  //search for matching suffix files
