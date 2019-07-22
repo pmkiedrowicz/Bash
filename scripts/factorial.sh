@@ -32,7 +32,7 @@ do
 read -p "Type a number to factory or press 'q' to quit: " REPLY
 if [ $REPLY = "q" ] ; then
     break
-elif [[ $REPLY =~ ^[0-9]+$ ]]; then
+elif [[ echo $REPLY =~ ^[0-9]+$ ]]; then
     if [ $REPLY -gt 20 ]; then
 	echo "This number is too huge, please type in range 0 to 20:"
 	elif [ $REPLY -le 20 -a $REPLY -ge 0 ]; then
