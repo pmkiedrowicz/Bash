@@ -21,7 +21,7 @@ calc_factorial() {
 #Main program starts here. At first step check 
 #if given integer is a Integer e.g. 0, 1, 2,...
 #If return true, then create variable $factorial 
-#and get the value of calc_factorial() $1
+#and print the value of calc_factorial() $1
 if [[ $1 =~ ^[0-9]+$ ]]; then
 	factorial=$(calc_factorial $1)
 	echo "Factorial of number $1 is: $factorial"
