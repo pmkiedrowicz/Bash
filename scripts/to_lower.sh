@@ -2,9 +2,9 @@
 #Simple script taking word to lower case
 #Function to_lower takes $1 argument
 to_lower(){
-    input="$1"
+    input="$REPLY"
 #Function use tr library to simple lower case
-    output= echo $1 | tr [A-Z] [a-z]
+    output= echo $REPLY | tr [A-Z] [a-z]
 #return statement
     return $output
 }
