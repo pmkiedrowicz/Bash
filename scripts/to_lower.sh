@@ -12,7 +12,7 @@ to_lower(){
 #q to stop the loop and end script
 while true
 do
-    read -p "Enter word to lower case, 'q' to stop: "
+    read -p "Enter word to lower case, 'q' to stop: " REPLY
     if [ $REPLY = "q" ] ; then
     break
 #Use to_lower function and print actual output
