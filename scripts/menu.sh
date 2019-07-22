@@ -5,6 +5,7 @@ do
     echo "a: Backup"
     echo "b: Calendar"
     echo "c: Lower case string"
+    echo "d: Factorial"
     echo "q: Exit"
     read -e -p "Please enter command: "
     echo " "
@@ -12,6 +13,7 @@ do
     a) sh ./backup.sh;;
     b) sh ./calendar.sh;;
     c) sh ./to_lower.sh;;
+    d) sh ./factorial.sh;;
     q) exit 0;;
     *) echo "Wrong char. Please try again."
     esac

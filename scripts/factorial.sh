@@ -3,7 +3,7 @@
 #Script also checks if this is a integer
 #Basic syntax called when params are wrong
 syntax() {
-echo "Syntax: ./factorial 25"
+echo "Syntax: 25"
 }
 #Main function for factoring
 calc_factorial() {
@@ -18,14 +18,29 @@ calc_factorial() {
 		echo $(( $res * $1 ))
 	fi
 }
-#Main program starts here. At first step check 
-#if given integer is a Integer e.g. 0, 1, 2,...
-#If return true, then create variable $factorial 
-#and print the value of calc_factorial() $1
-if [[ $1 =~ ^[0-9]+$ ]]; then
-	factorial=$(calc_factorial $1)
-	echo "Factorial of number $1 is: $factorial"
+#Main program starts here. At first step ask for a number
+#If its 'q' program just finish,else if is not a number it continue
+#to last else statement, which print corrent syntax to user.
+#Else if user input contans number the main loop will continue.
+#If input is a number greater than 20
+#program prints simple message to correct number in range 0-20.
+#If input is in range 0-20 (0,20 within) it sends $REPLY to the
+#factorial() method. Output is saved in $factorial
+#At end program prints a factorial number.
+while true
+do
+read -p "Type a number to factory or press 'q' to quit: " REPLY
+if [ $REPLY = "q" ] ; then
+    break
+elif [[ $REPLY =~ ^[0-9]+$ ]]; then
+    if [ $REPLY -gt 20 ]; then
+	echo "This number is too huge, please type in range 0 to 20:"
+	elif [ $REPLY -le 20 -a $REPLY -ge 0 ]; then
+	factorial=$(calc_factorial $REPLY)
+	echo "Factorial of number $REPLY is: $factorial"
+	fi
 #If it's false, then call syntax() method
 else
 	syntax
 fi
+done
