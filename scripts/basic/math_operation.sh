@@ -1,11 +1,38 @@
 #!/bin/bash
 #Simple script with basic math operations
-A=15
-B=22
-C=7
-#Using $(()) to do basic math, its assign to variable 'SUM'
-#Varialble 'A' is added to double varialbe 'B',
-#then substracted from variable 'C'
-SUM=$(($A + 2 * $B - 3 * $C))
-#prints variable 'SUM'
-echo "$SUM"
+A=10
+B=25
+
+#Addition
+var=`expr $A + $B`
+echo "A + B = $var"
+
+#Substraction
+var=`expr $A - $B`
+echo "A - B = $var"
+
+#Multiplication
+var=`expr $A \* $B`
+echo "A * B = $var"
+
+#Division
+var=`expr $B / $A`
+echo "B / A = $var"
+
+#Modulus
+var=`expr $A % $B`
+echo "A % B = $var"
+
+#Assignment
+A=$B
+A=10
+
+#Equality
+if [ $A == $B ] ; then
+echo "A is equal to B"
+fi
+
+#Not Equality
+if [ $A != $B ] ; then
+echo "A is not equal to B"
+fi
