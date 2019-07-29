@@ -58,6 +58,39 @@ ls -la         //plus properties
 ls pv*         //list all names starting with pv
 ls pv?         //list 3 symbol names starting with pv
 ```
+### sed
+```
+sed '1,5d'        //delete lines from 1 to 5
+sed '2,5!d'       //delete lines all except 2 to 5
+sed '/^daemon/d'  //delete lines starting with word 'daemon'
+sed '/nologin$/d' //delete all lines ending with word 'nologin'
+sed '/r..t/d'     //delete all lines of word with letter 'r'
+                  //followed by two chars and with letter 't'
+sed '/[dD]o/d'    //delete all lines with word 'do' or 'Do'
+sed -n '2,5p'     //print lines from 2 to 5
+sed -n '/root/p'  //print lines matching word 'root'
+
+cat phone | sed 's/^[0-9]\{3\}/(&)/g'
+                  //print all lines with parenthesis containing
+				  //first three numbers, '&' stands for matching regex,
+				  //symbols before and after could be different
+				  
+sed 's/root/newUser/'     //change first occurence in line of word 'root' to 'newUser'
+sed 's/root/newUser/g'    //change all occurence of word 'root' to 'newUser'
+sed 's:/root:/newUser:g'  //change all occurence of word '/root' to '/newUser'
+sed 's/root//g'           //delete all occurence of word 'root'
+sed '2s/sbin/fakeBIN/g'   //change all occurence of word 'sbin' to 'fakeBIN'
+                          //but only in line 2
+
+/^$/         //matches blank lines
+/^.*$/       //match whole line no matter what it is
+/ */         //match one+ spaces
+[a-z]        //match a single lowercase char
+[A-Z]        //match a single uppercase char
+[a-zA-Z]     //match a single char
+[0-9]        //match a single number
+[a-zA-Z0-9]  //match a single char or number
+```
 ### vi
 ```
 vi newFile     //creates new file and go view mode
